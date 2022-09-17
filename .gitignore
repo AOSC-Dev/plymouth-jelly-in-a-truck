@@ -1,0 +1,7 @@
+*.blend1
+*~
+*.swp
+*.tmp
+
+output/
+inst/
