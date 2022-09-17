@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Jelly in a Truck
+Description=Jelly in a Truck
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/jelly-in-a-truck/images
+ScriptFile=/usr/share/plymouth/themes/jelly-in-a-truck/jelly-in-a-truck.script

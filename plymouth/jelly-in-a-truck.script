@@ -1,0 +1,43 @@
+# Set refresh rate (frame rate) to 30 fps.
+Plymouth.SetRefreshRate(50);
+
+# Set background color to black.
+Window.SetBackgroundTopColor(0, 0, 0);
+Window.SetBackgroundBottomColor(0, 0, 0);
+
+stack = [];
+
+index = 1;
+
+fun load_sprites(prefix, frames) {
+    for (i = 1; i <= frames; i++) {
+        stack[i].image = Image(prefix + i + ".png");
+        stack[i].sprite = Sprite(stack[i].image);
+        stack[i].sprite.SetOpacity(0);
+        stack[i].offset_y = 1;
+
+        # Center animation.
+        stack[i].x = Window.GetX() + Window.GetWidth() / 2 - stack[i].image.GetWidth() / 2;
+        stack[i].y = Window.GetX() + Window.GetHeight() / 2 - stack[i].image.GetHeight() / 2;
+        stack[i].sprite.SetPosition(stack[i].x, stack[i].y, 0);
+    }
+}
+
+fun draw_next_frame() {
+    for (i = 1; i <= 100; i++) {
+        if (index != i) {
+            stack[i].sprite.SetOpacity(0);
+        }
+        else {
+            stack[i].sprite.SetOpacity(1);
+        }
+    }
+
+    # Draw the next frame.
+    index = (index + 1) % 100;
+}
+
+
+load_sprites(boot, "jiat_", 35);
+Plymouth.SetRefreshFunction(draw_next_frame);
+
