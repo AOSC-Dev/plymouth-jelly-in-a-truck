@@ -34,10 +34,10 @@ fun draw_next_frame() {
     }
 
     # Draw the next frame.
-    index = (index + 1) % 100;
+    index = index % 100 + 1;
 }
 
 
-load_sprites(boot, "jiat_", 35);
+load_sprites(boot, "jiat_", 100);
 Plymouth.SetRefreshFunction(draw_next_frame);
 
