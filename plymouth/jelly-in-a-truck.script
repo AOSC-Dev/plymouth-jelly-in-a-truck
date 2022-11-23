@@ -38,6 +38,8 @@ fun draw_next_frame() {
 }
 
 
-load_sprites(boot, "jiat_", 100);
-Plymouth.SetRefreshFunction(draw_next_frame);
+if (Plymouth.GetMode() == "boot") {
+    load_sprites("jiat_", 100);
+    Plymouth.SetRefreshFunction(draw_next_frame);
+}
 
